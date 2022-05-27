@@ -22,4 +22,10 @@ Vamos criar um ambiente K8S com uma API que persiste em um banco
 		"DataNascimento":"1970-11-23"
 	}
  
+** Dados para conectar no banco SQL 
+
+	Server Name: localhost:31001
+	User: sa 
+	Senha: Banco@2022
+	
  
