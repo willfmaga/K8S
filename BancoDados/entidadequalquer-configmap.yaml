@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata: 
+  name: entidadequalquer-sql-configmap
+data:
+  ACCEPT_EULA: "Y"
+  SA_PASSWORD: "Banco@2022"

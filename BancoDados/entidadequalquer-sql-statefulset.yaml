@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: entidadequalquer-sql-statefulset
+spec:
+  replicas: 1
+  template: 
+    metadata:
+      labels: 
+        app: entidadequalquer-sql
+      name: entidadequalquer-sql
+    spec: 
+      containers: 
+        - name: entidadequalquer-sql-container
+          image: mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04
+          ports: 
+            - containerPort: 1433
+          envFrom:
+            - configMapRef:
+                name: entidadequalquer-sql-configmap
+          volumeMounts:
+            - name: sql
+              mountPath: /var/opt/mssql
+      volumes:
+        - name: sql
+          persistentVolumeClaim:
+            claimName: entidadequalquer-sql-pvc
+  selector: 
+    matchLabels:
+      app: entidadequalquer-sql
+  serviceName: entidadequalquer-sql-svc

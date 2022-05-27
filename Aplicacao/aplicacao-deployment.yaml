@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: entidadequalquer-aplicacao-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: entidadequalquer-aplicacao
+      labels:
+        app: entidadequalquer-aplicacao
+    spec:
+      containers:
+        - name: entidadequalquer-aplicacao-container
+          image: willfmaga/aplicacaomodelowebapi:2
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: entidadequalquer-aplicacao-configmap
+  selector:
+    matchLabels:
+      app: entidadequalquer-aplicacao

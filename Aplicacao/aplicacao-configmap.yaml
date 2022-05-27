@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata: 
+  name: entidadequalquer-aplicacao-configmap
+data:
+  ASPNETCORE_ENVIRONMENT: Development
+  
